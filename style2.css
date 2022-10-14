@@ -1,0 +1,32 @@
+.navbar {
+  top: 0;
+  position: sticky;
+  z-index: 999;
+}
+
+.nav-item {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.navbar {
+  background-color: #125d72 !important;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}

@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Noto+Sans:ital,wght@0,300;1,200&family=Open+Sans:wght@300&family=Oxygen:wght@300&family=Poppins:wght@100;300;400;500;600&family=Quicksand:wght@400;700&family=Ubuntu&display=swap");
+
 body {
   background-image: url("./image/login.jpeg");
-  height: 100%;
 }
 
 .navbar {
