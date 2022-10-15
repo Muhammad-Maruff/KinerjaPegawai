@@ -33,10 +33,50 @@
 
 .box {
   padding: 10px;
-  border: 1px solid;
+  border: none;
   background-color: white;
-  box-sizing: border-box;
   margin: 10px;
   width: 70%;
   margin: 10px auto;
+}
+
+.btn-create {
+  border: 1px solid black;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 70px;
+  height: 35px;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  border: none;
+}
+
+.btn-create:hover {
+  font-weight: bold;
+  color: white;
+}
+
+.new-data {
+  text-align: center;
+  background-color: #174d5e;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.input {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 10px;
+}
+
+.card-footer {
+  background-color: #174d5e;
 }
