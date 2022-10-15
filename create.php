@@ -1,16 +1,45 @@
-<!DOCTYPE html>
+<?php 
+
+//index.php
+
+$connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
+
+$query = "
+SELECT divisi FROM tb_divisi 
+ORDER BY divisi ASC
+";
+
+$result = $connect->query($query);
+
+$data = array();
+
+foreach($result as $row)
+{
+    $data[] = array(
+        'label'     =>  $row['divisi'],
+        'value'     =>  $row['divisi']
+    );
+}
+
+?>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Form | DATA</title>
-    <link rel="stylesheet" href="style2.css">
-</head>
-<body>
-     <!-- Nav -->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="library/bootstrap-5/bootstrap.min.css" rel="stylesheet" />
+        <script src="library/bootstrap-5/bootstrap.bundle.min.js"></script>
+        <script src="library/autocomplete.js"></script>
+        <link rel="stylesheet" href="style2.css">
+
+        <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
       <div class="container">
         <a href=""> <img src="https://www.patinews.com/wp-content/uploads/2015/03/logo-pln-pati.jpg" width="30" height="30" class="d-inline-block align-top logo" alt="" ></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,12 +89,16 @@
       <input type="text" class="form-control">
     </div>
   </div>
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Divisi</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control">
-    </div>
-  </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-2 col-form-label">Divisi</label>
+                <div class="col-md-10">
+                    <input type="text" name="divisi" id="divisi" class="form-control"/>
+                </div>
+          
+     
+            <br />
+            <br />
+        </div>
   <div class="row mb-3">
     <div class="col-sm-10 offset-sm-2">
 
@@ -75,14 +108,17 @@
 <!--Akhir input data-->
         
         </div>
-        <div class="card-footer">
+        
+        <script>
+var auto_complete = new Autocomplete(document.getElementById('divisi'), {
+    data:<?php echo json_encode($data); ?>,
+    maximumItems:10,
+    highlightTyped:true,
+    highlightClass : 'fw-bold text-primary'
+}); 
 
-        </div>
-      </div>
-      </div>
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+</script>
+<script src="/library/autocomplete.js"></script>
+    </body>
 </html>
+

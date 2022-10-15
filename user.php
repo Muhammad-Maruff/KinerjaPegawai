@@ -57,12 +57,21 @@
         <div class="card-body">
         <!--Input Data-->
         <form action="connect.php" method="post">
+
+        <div class="row mb-3">
+    <label for="nama" class="col-sm-2 col-form-label nama" name="nama">Nama</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="nama">
+    </div>
+  </div>
+
   <div class="row mb-3">
     <label for="username" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
       <input type="text" class="form-control username" name="username">
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="password" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
@@ -70,13 +79,8 @@
     </div>
   </div>
 
-  <div class="row mb-3">
-    <label for="address" class="col-sm-2 col-form-label address" name="address">Address</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="address">
-    </div>
-  </div>
-  <input type="submit" class="btn btn-primary">
+  
+  <input type="submit" class="btn btn-primary btn-register">
 </form>
 <!--Akhir input data-->
         

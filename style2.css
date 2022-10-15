@@ -80,3 +80,12 @@
 .card-footer {
   background-color: #174d5e;
 }
+
+.btn-register {
+  background-color: green !important;
+  color: white;
+}
+
+.btn-register:hover {
+  font-weight: bolder;
+}
