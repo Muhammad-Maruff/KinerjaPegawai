@@ -46,7 +46,7 @@
                     $_SESSION['a_global'] = $d;
                     $_SESSION['id'] = $d->admin_id;
 
-                    echo '<script>window.location="superadmin.php"</script>';
+                    echo '<script>window.location="user.php"</script>';
                 }
                 else{
                     echo '<script>alert("Username atau Password anda salah...!")</script>';

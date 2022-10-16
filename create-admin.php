@@ -48,16 +48,7 @@ foreach($result as $row)
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="superadmin.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="juknis.php">Juknis</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="nav-user.php">User</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="role.php">Role Permission</a>
+              <a class="nav-link" aria-current="page" href="admin.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="keluar.php">Keluar</a>
