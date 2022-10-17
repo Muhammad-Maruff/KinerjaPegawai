@@ -3,7 +3,7 @@
   $server = "localhost";
   $user = "root";
   $password = "";
-  $database = "dbcrud_pegawai";
+  $database = "kinerjapegawai";
 
   //buat koneksi
   $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
@@ -105,7 +105,7 @@
               <td><?= $data['tipe_kpi'] ?></td>
               <td><?= $data['tipe_target'] ?></td>
               <td><?= $data['polaritas'] ?></td>
-              <td><?= $data['jabatan'] ?></td>
+              <td><?= $data['divisi'] ?></td>
               <td>
                 <a href="#" class="btn btn-view">View</a>
                 <a href="#" class="btn btn-warning">Edit</a>

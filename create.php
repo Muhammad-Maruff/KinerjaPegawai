@@ -30,7 +30,7 @@ foreach($result as $row)
   $server = "localhost";
   $user = "root";
   $password = "";
-  $database = "dbcrud_pegawai";
+  $database = "kinerjapegawai";
 
   //buat koneksi
   $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
@@ -38,7 +38,7 @@ foreach($result as $row)
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
     //Data akan disimpan
-    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,satuan,kategori_satuan,tipe_kpi,tipe_target,polaritas,jabatan)
+    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
                                       VALUE ( '$_POST[tdeskripsi]', 
                                               '$_POST[tdefinisi]',
                                               '$_POST[ttujuan]', 
@@ -239,15 +239,16 @@ foreach($result as $row)
       <input type="text" class="form-control" name="tparent">
     </div>
   </div>
-</form>   
-        </div>
-     <!--Akhir input data-->
-     
-     <div class="text-center">
+  <div class="text-center">
       <hr>
       <button class="btn btn-primary btn-simpan" name="btn-simpan" type="submit">Save</button>
       <button class="btn btn-primary btn-clear" name="btn-clear" type="reset">Clear</button>
      </div>
+</form>   
+        </div>
+     <!--Akhir input data-->
+     
+    
 
         <script>
 var auto_complete = new Autocomplete(document.getElementById('divisi'), {
