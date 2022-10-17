@@ -89,3 +89,39 @@
 .btn-register:hover {
   font-weight: bolder;
 }
+
+.btn-simpan {
+  background-color: green !important;
+  color: white;
+}
+
+.btn-simpan:hover {
+  font-weight: bold;
+}
+
+.btn-clear {
+  background-color: red !important;
+  color: white;
+  margin-left: 20px;
+}
+
+.btn-view {
+  background-color: green !important;
+  color: white;
+}
+
+.btn-clear:hover {
+  font-weight: bold;
+}
+
+.header-data {
+  background-color: #125d72 !important;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer-data {
+  background-color: #125d72 !important;
+}

@@ -2,6 +2,7 @@
 
 //index.php
 
+
 $connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
 
 $query = "
@@ -21,6 +22,56 @@ foreach($result as $row)
     );
 }
 
+?>
+
+
+<?php
+  //Koneksi database
+  $server = "localhost";
+  $user = "root";
+  $password = "";
+  $database = "dbcrud_pegawai";
+
+  //buat koneksi
+  $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
+
+  //jika button simpan diklik
+  if(isset($_POST['btn-simpan'])){
+    //Data akan disimpan
+    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,satuan,kategori_satuan,tipe_kpi,tipe_target,polaritas,jabatan)
+                                      VALUE ( '$_POST[tdeskripsi]', 
+                                              '$_POST[tdefinisi]',
+                                              '$_POST[ttujuan]', 
+                                              '$_POST[tsatuan]', 
+                                              '$_POST[tkategori]', 
+                                              '$_POST[tformula]', 
+                                              '$_POST[tsumber]', 
+                                              '$_POST[ttipe]',
+                                              '$_POST[ttarget]', 
+                                              '$_POST[tfrekuensi]', 
+                                              '$_POST[tpolaritas]', 
+                                              '$_POST[tdivisi]', 
+                                              '$_POST[tpemilik]', 
+                                              '$_POST[teviden]', 
+                                              '$_POST[tsyarat]', 
+                                              '$_POST[tparent]')
+                                  ");
+    
+    //uji jika simpan data sukses
+    if($simpan){
+      echo "<script>
+      alert('data berhasil disimpan!');
+      document.location='superadmin.php';
+      </script>";
+    } else{
+      echo "<script>
+        alert('Simpan data gagal');
+        document.location='superadmin.php'
+      </script>";
+    }
+    $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+            while($data = mysqli_fetch_array($tampil));
+  }
 ?>
 
 <!doctype html>
@@ -76,17 +127,17 @@ foreach($result as $row)
         </div>
         <div class="card-body">
         <!--Input Data-->
-        <form>
+        <form method="POST">
   <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tdeskripsi">
     </div>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tdefinisi">
     </div>
   </div>
           
@@ -94,114 +145,110 @@ foreach($result as $row)
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
-    </div>
-  </div>
-
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="ttujuan">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tsatuan">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tkategori">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Formula</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tformula">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Sumber Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tsumber">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="ttipe">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="ttarget">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tfrekuensi">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tpolaritas">
     </div>
   </div>
 
   <div class="row mb-3">
-                <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
-                <div class="col-md-10">
-                    <input type="text" name="divisi" id="divisi" class="form-control"/>
-                </div>
-
-      <br>
-      <br>
+      <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
+      <div class="col-md-10">
+          <input type="text" name="tdivisi" id="divisi" class="form-control"/>
       </div>
+  <br>
+  </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tpemilik">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Eviden</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="teviden">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tsyarat">
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="tparent">
     </div>
   </div>
-</form>
-<!--Akhir input data-->
-        
+</form>   
         </div>
-        
+     <!--Akhir input data-->
+     
+     <div class="text-center">
+      <hr>
+      <button class="btn btn-primary btn-simpan" name="btn-simpan" type="submit">Save</button>
+      <button class="btn btn-primary btn-clear" name="btn-clear" type="reset">Clear</button>
+     </div>
+
         <script>
 var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     data:<?php echo json_encode($data); ?>,
