@@ -78,30 +78,123 @@ foreach($result as $row)
         <!--Input Data-->
         <form>
   <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
       <input type="text" class="form-control">
     </div>
   </div>
   <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Alamat</label>
+    <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
       <input type="text" class="form-control">
     </div>
   </div>
-            <div class="row mb-3">
-                <label for="" class="col-sm-2 col-form-label">Divisi</label>
+          
+
+        <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Satuan</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Formula</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Sumber Target</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Polaritas</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+                <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
                 <div class="col-md-10">
                     <input type="text" name="divisi" id="divisi" class="form-control"/>
                 </div>
-          
-     
-            <br />
-            <br />
-        </div>
-  <div class="row mb-3">
-    <div class="col-sm-10 offset-sm-2">
 
+      <br>
+      <br>
+      </div>
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Eviden</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
     </div>
   </div>
 </form>
