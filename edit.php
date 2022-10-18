@@ -38,38 +38,77 @@ foreach($result as $row)
 
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
-    //Data akan disimpan
-    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
-                                      VALUE ( '$_POST[tdeskripsi]', 
-                                              '$_POST[tdefinisi]',
-                                              '$_POST[ttujuan]', 
-                                              '$_POST[tsatuan]', 
-                                              '$_POST[tkategori]', 
-                                              '$_POST[tformula]', 
-                                              '$_POST[tsumber]', 
-                                              '$_POST[ttipe]',
-                                              '$_POST[ttarget]', 
-                                              '$_POST[tfrekuensi]', 
-                                              '$_POST[tpolaritas]', 
-                                              '$_POST[tdivisi]', 
-                                              '$_POST[tpemilik]', 
-                                              '$_POST[teviden]', 
-                                              '$_POST[tsyarat]', 
-                                              '$_POST[tparent]')
-                                  ");
-    
-    //uji jika simpan data sukses
-    if($simpan){
-      echo "<script>
-      alert('data berhasil disimpan!');
-      document.location='superadmin.php';
-      </script>";
-    } else{
-      echo "<script>
-        alert('Simpan data gagal');
-        document.location='superadmin.php'
-      </script>";
+    if(isset($_GET['hal']) == "edit"){
+      $edit = mysqli_query($koneksi, "UPDATE tb_data SET
+                                              deskripsi = '$_POST[tdeskripsi]',
+                                              definisi = '$_POST[tdefinisi]',
+                                              tujuan = '$_POST[ttujuan]',
+                                              satuan = '$_POST[tsatuan]',
+                                              kategori_satuan = '$_POST[tkategori]',
+                                              formula = '$_POST[tformula]',
+                                              sumber_target = '$_POST[tsumber]',
+                                              tipe_kpi = '$_POST[ttipe]',
+                                              tipe_target = '$_POST[ttarget]',
+                                              frekuensi = '$_POST[tfrekuensi]',
+                                              polaritas = '$_POST[tpolaritas]', 
+                                              divisi = '$_POST[tdivisi]', 
+                                              pemilik = '$_POST[tpemilik]', 
+                                              eviden = '$_POST[teviden]', 
+                                              syarat_ketentuan = '$_POST[tsyarat]',
+                                              kpi_parent = '$_POST[tparent]'
+                                              WHERE id_data = '$_GET[id]'
+          ");
+
+          if($edit){
+            echo "<script>
+              alert('Data berhasil edit!');
+              document.location='superadmin.php'
+            </script>";
+          }
+          else{
+            echo "<script>
+              alert('Data gagal edit!');
+              document.location='superadmin.php'
+            </script>";
+          }
     }
+    //Data akan disimpan
+
+    else{
+      $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
+      VALUE ( '$_POST[tid]',
+              '$_POST[tdeskripsi]', 
+              '$_POST[tdefinisi]',
+              '$_POST[ttujuan]', 
+              '$_POST[tsatuan]', 
+              '$_POST[tkategori]', 
+              '$_POST[tformula]', 
+              '$_POST[tsumber]', 
+              '$_POST[ttipe]',
+              '$_POST[ttarget]', 
+              '$_POST[tfrekuensi]', 
+              '$_POST[tpolaritas]', 
+              '$_POST[tdivisi]', 
+              '$_POST[tpemilik]', 
+              '$_POST[teviden]', 
+              '$_POST[tsyarat]', 
+              '$_POST[tparent]')
+  ");
+
+//uji jika simpan data sukses
+if($simpan){
+echo "<script>
+alert('data berhasil disimpan!');
+document.location='superadmin.php';
+</script>";
+} else{
+echo "<script>
+alert('Simpan data gagal');
+document.location='superadmin.php'
+</script>";
+}
+    }
+    
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
   }
