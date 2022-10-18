@@ -22,6 +22,7 @@ foreach($result as $row)
     );
 }
 
+
 ?>
 
 
@@ -61,17 +62,73 @@ foreach($result as $row)
     if($simpan){
       echo "<script>
       alert('data berhasil disimpan!');
-      document.location='admin.php';
+      document.location='superadmin.php';
       </script>";
     } else{
       echo "<script>
         alert('Simpan data gagal');
-        document.location='admin.php'
+        document.location='superadmin.php'
       </script>";
     }
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
   }
+
+  //deklarasi variabel untuk menampung data yang akan diedit
+  $vid = "";
+  $vdeskripsi = "";
+  $vdefinisi = "";
+  $vtujuan = "";
+  $vsatuan = "";
+  $vkategori_satuan = "";
+  $vformula = "";
+  $vsumber_target = "";
+  $vtipe_kpi = "";
+  $vtipe_target="";
+  $vfrekuensi = "";
+  $vpolaritas ="";
+  $vdivisi = "";
+  $vpemilik = "";
+  $veviden = "";
+  $vsyarat_ketentuan = "";
+  $vkpi_parent = "";
+
+
+
+  //jika tombol edit diedit/hapus
+  if(isset($_GET['hal'])){
+    //jika edit data
+    if($_GET['hal'] == "view"){
+      //tampilkan data yang akan diedit
+
+      
+      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
+    
+      $data = mysqli_fetch_array($tampil);
+      if($data){
+        //jika data ditemukan, maka data ditampung kedalam variabel
+        $vid = $data['id_data'];
+        $vdeskripsi = $data['deskripsi'];
+        $vdefinisi = $data['definisi'];
+        $vtujuan = $data['tujuan'];
+        $vsatuan = $data['satuan'];
+        $vkategori_satuan = $data['kategori_satuan'];
+        $vformula = $data['formula'];
+        $vsumber_target = $data['sumber_target'];
+        $vtipe_kpi = $data['tipe_kpi'];
+        $vtipe_target = $data['tipe_target'];
+        $vfrekuensi = $data['frekuensi'];
+        $vpolaritas = $data['polaritas'];
+        $vdivisi = $data['divisi'];
+        $vpemilik = $data['pemilik'];
+        $veviden = $data['eviden'];
+        $vsyarat_ketentuan = $data['syarat_ketentuan'];
+        $vkpi_parent = $data['kpi_parent'];
+      }
+    }
+  }
+
+  
 ?>
 
 <!doctype html>
@@ -90,6 +147,7 @@ foreach($result as $row)
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
     <body>
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
       <div class="container">
         <a href=""> <img src="https://www.patinews.com/wp-content/uploads/2015/03/logo-pln-pati.jpg" width="30" height="30" class="d-inline-block align-top logo" alt="" ></a>
@@ -122,16 +180,22 @@ foreach($result as $row)
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-  <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
+        <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdeskripsi">
+      <input type="text" class="form-control" name="tid" value="<?= $vid ?>" disabled>
+    </div>
+  </div>
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="tdeskripsi" value="<?= $vdeskripsi ?>" disabled>
     </div>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdefinisi">
+      <input type="text" class="form-control" name="tdefinisi" value="<?= $vdefinisi ?>" disabled>
     </div>
   </div>
           
@@ -139,98 +203,98 @@ foreach($result as $row)
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttujuan">
+      <input type="text" class="form-control" name="ttujuan" value="<?= $vtujuan ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsatuan">
+      <input type="text" class="form-control" name="tsatuan" value="<?= $vsatuan ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori">
+      <input type="text" class="form-control" name="tkategori" value="<?= $vkategori_satuan ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Formula</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tformula">
+      <input type="text" class="form-control" name="tformula" value="<?= $vformula ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Sumber Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsumber">
+      <input type="text" class="form-control" name="tsumber" value="<?= $vsumber_target ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe">
+      <input type="text" class="form-control" name="ttipe" value="<?= $vtipe_kpi ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget">
+      <input type="text" class="form-control" name="ttarget" value="<?= $vtipe_target ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi">
+      <input type="text" class="form-control" name="tfrekuensi" value="<?= $vfrekuensi ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas">
+      <input type="text" class="form-control" name="tpolaritas" value="<?= $vpolaritas ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
       <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
       <div class="col-md-10">
-          <input type="text" name="tdivisi" id="divisi" class="form-control"/>
+          <input type="text" name="tdivisi" id="divisi" class="form-control" value="<?= $vdivisi ?>" disabled>
       </div>
   <br>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpemilik">
+      <input type="text" class="form-control" name="tpemilik" value="<?= $vpemilik ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Eviden</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="teviden">
+      <input type="text" class="form-control" name="teviden" value="<?= $veviden ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsyarat">
+      <input type="text" class="form-control" name="tsyarat" value="<?= $vsyarat_ketentuan ?>" disabled>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tparent">
+      <input type="text" class="form-control" name="tparent" value="<?= $vkpi_parent ?>" disabled>
     </div>
   </div>
   <div class="text-center">

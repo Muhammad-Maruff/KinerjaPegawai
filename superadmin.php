@@ -7,7 +7,11 @@
 
   //buat koneksi
   $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
+
+
 ?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -58,9 +62,8 @@
            <a href="create.php" class="btn-create">NEW+</a>
        </div>
     <!--akhir row-->
-
-      <!--Card-->
-      <div class="card mt-3">
+ <!--Card-->
+ <div class="card mt-3">
         <div class="card-header header-data">
           Data Karyawan
         </div>
@@ -78,7 +81,7 @@
 
           <table class="table table-striped table:hover table-bordered">
             <tr>
-              <th>#</th>
+              <th>ID</th>
               <th>Deskripsi KPI</th>
               <th>Satuan KPI</th>
               <th>Kategori Satuan</th>
@@ -98,7 +101,7 @@
             ?>
 
             <tr>
-              <td><?= $no++ ?></td>
+              <td><?= $data['id_data'] ?></td>
               <td><?= $data['deskripsi'] ?></td>
               <td><?= $data['satuan'] ?></td>
               <td><?= $data['kategori_satuan'] ?></td>
@@ -107,9 +110,10 @@
               <td><?= $data['polaritas'] ?></td>
               <td><?= $data['divisi'] ?></td>
               <td>
-                <a href="#" class="btn btn-view">View</a>
-                <a href="#" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Hapus</a>
+                <a href="view.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
+                <a href="edit.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
+
+                <a href="#>" class="btn btn-danger">Hapus</a>
 
               </td>
             </tr>

@@ -33,6 +33,10 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="juknis.php">Juknis</a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link" href="keluar.php">Keluar</a>
             </li>
           </ul>
@@ -93,7 +97,7 @@
             ?>
 
             <tr>
-              <td><?= $no++ ?></td>
+              <td><?= $data['id_data'] ?></td>
               <td><?= $data['deskripsi'] ?></td>
               <td><?= $data['satuan'] ?></td>
               <td><?= $data['kategori_satuan'] ?></td>
@@ -102,8 +106,8 @@
               <td><?= $data['polaritas'] ?></td>
               <td><?= $data['divisi'] ?></td>
               <td>
-                <a href="#" class="btn btn-view">View</a>
-                <a href="#" class="btn btn-warning">Edit</a>
+                <a href="view-admin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
+                <a href="edit-admin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
                 <a href="#" class="btn btn-danger">Hapus</a>
 
               </td>
