@@ -297,11 +297,6 @@ foreach($result as $row)
       <input type="text" class="form-control" name="tparent" value="<?= $vkpi_parent ?>" disabled>
     </div>
   </div>
-  <div class="text-center">
-      <hr>
-      <button class="btn btn-primary btn-simpan" name="btn-simpan" type="submit">Save</button>
-      <button class="btn btn-primary btn-clear" name="btn-clear" type="reset">Clear</button>
-     </div>
 </form>   
         </div>
      <!--Akhir input data-->
