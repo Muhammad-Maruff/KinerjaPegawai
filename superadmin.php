@@ -72,7 +72,7 @@
           <div class="col-md-6 mx-auto">
             <form action="" method="POST">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Search..." name='tcari'>
                 <button class="btn btn-primary" type="submit" name="btn-cari">Cari</button>
                 <button class="btn btn-danger" type="submit" name="btn-reset">Reset</button>
               </div>
@@ -96,7 +96,18 @@
             
               //persiapan menampilkan data
               $no = 1;
-            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+
+            //untuk pencarian data
+            if(isset($_POST['btn-cari'])){
+              //tampilkan data yang dicari
+              $keyword = $_POST['tcari'];
+              $q = "SELECT * FROM tb_data WHERE id_data like '%$keyword%' or deskripsi like '%$keyword%' or divisi like '%$keyword%' or kategori_satuan like '%$keyword%' or tipe_kpi like '%$keyword%' or tipe_target like '%$keyword%' or polaritas like '%$keyword%' order by id_data desc ";
+            }else{
+              $q =  "SELECT * FROM tb_data order by id_data asc";
+            }
+
+
+            $tampil = mysqli_query($koneksi, $q);
             while($data = mysqli_fetch_array($tampil)) :
             ?>
 
