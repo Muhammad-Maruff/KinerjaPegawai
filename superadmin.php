@@ -113,7 +113,7 @@
                 <a href="view.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
                 <a href="edit.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
 
-                <a href="#>" class="btn btn-danger">Hapus</a>
+                <a href="delete.php?hal=delete&id=<?=$data['id_data']?>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Hapus</a>
 
               </td>
             </tr>
