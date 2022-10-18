@@ -7,7 +7,11 @@
 
   //buat koneksi
   $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
+
+
 ?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -29,13 +33,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="admin.php">Home</a>
+              <a class="nav-link" aria-current="page" href="superadmin.php">Home</a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="juknis.php">Juknis</a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="keluar.php">Keluar</a>
             </li>
@@ -49,17 +51,13 @@
         echo $_SESSION['a_global']->username;
         ?>
         </h3>
-
-
       <!-- awal row -->
-       
         <div class="card text-center">
-  <a href="create-admin.php" class="btn-create">NEW+</a>
-      </div>
-<!--akhir row-->
-
-<!--Card-->
-<div class="card mt-3">
+           <a href="create-admin.php" class="btn-create">NEW+</a>
+       </div>
+    <!--akhir row-->
+ <!--Card-->
+ <div class="card mt-3">
         <div class="card-header header-data">
           Data Karyawan
         </div>
@@ -68,7 +66,7 @@
           <div class="col-md-6 mx-auto">
             <form action="" method="POST">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Search..." name='tcari'>
                 <button class="btn btn-primary" type="submit" name="btn-cari">Cari</button>
                 <button class="btn btn-danger" type="submit" name="btn-reset">Reset</button>
               </div>
@@ -77,7 +75,7 @@
 
           <table class="table table-striped table:hover table-bordered">
             <tr>
-              <th>#</th>
+              <th>ID</th>
               <th>Deskripsi KPI</th>
               <th>Satuan KPI</th>
               <th>Kategori Satuan</th>
@@ -92,7 +90,18 @@
             
               //persiapan menampilkan data
               $no = 1;
-            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+
+            //untuk pencarian data
+            if(isset($_POST['btn-cari'])){
+              //tampilkan data yang dicari
+              $keyword = $_POST['tcari'];
+              $q = "SELECT * FROM tb_data WHERE id_data like '%$keyword%' or deskripsi like '%$keyword%' or divisi like '%$keyword%' or kategori_satuan like '%$keyword%' or tipe_kpi like '%$keyword%' or tipe_target like '%$keyword%' or polaritas like '%$keyword%' order by id_data desc ";
+            }else{
+              $q =  "SELECT * FROM tb_data order by id_data asc";
+            }
+
+
+            $tampil = mysqli_query($koneksi, $q);
             while($data = mysqli_fetch_array($tampil)) :
             ?>
 
@@ -108,7 +117,8 @@
               <td>
                 <a href="view-admin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
                 <a href="edit-admin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Hapus</a>
+
+                <a href="delete-admin.php?hal=delete&id=<?=$data['id_data']?>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Hapus</a>
 
               </td>
             </tr>
@@ -120,6 +130,7 @@
       
         </div>
       </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

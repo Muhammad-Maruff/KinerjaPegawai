@@ -137,33 +137,26 @@ document.location='admin.php'
   //jika tombol edit diedit/hapus
   if(isset($_GET['hal'])){
     //jika edit data
-    if($_GET['hal'] == "edit"){
+    if($_GET['hal'] == "delete"){
       //tampilkan data yang akan diedit
 
       
       $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
     
       $data = mysqli_fetch_array($tampil);
-      if($data){
-        //jika data ditemukan, maka data ditampung kedalam variabel
-        $vid = $data['id_data'];
-        $vdeskripsi = $data['deskripsi'];
-        $vdefinisi = $data['definisi'];
-        $vtujuan = $data['tujuan'];
-        $vsatuan = $data['satuan'];
-        $vkategori_satuan = $data['kategori_satuan'];
-        $vformula = $data['formula'];
-        $vsumber_target = $data['sumber_target'];
-        $vtipe_kpi = $data['tipe_kpi'];
-        $vtipe_target = $data['tipe_target'];
-        $vfrekuensi = $data['frekuensi'];
-        $vpolaritas = $data['polaritas'];
-        $vdivisi = $data['divisi'];
-        $vpemilik = $data['pemilik'];
-        $veviden = $data['eviden'];
-        $vsyarat_ketentuan = $data['syarat_ketentuan'];
-        $vkpi_parent = $data['kpi_parent'];
-      }
+      $hapus = mysqli_query($koneksi, "DELETE FROM tb_data WHERE id_data = '$_GET[id]'");
+      //jika hapus sukses
+      if($hapus){
+        echo "<script>
+        alert('data berhasil dihapus!');
+        document.location='admin.php';
+        </script>";
+        } else{
+        echo "<script>
+        alert('Hapus data gagal');
+        document.location='admin.php'
+        </script>";
+        }
     }
   }
 
