@@ -22,6 +22,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style2.css">
   </head>
+
+  <?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	?>
+
+
   <body>
      <!-- Nav -->
      <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
@@ -36,18 +47,24 @@
               <a class="nav-link" aria-current="page" href="user.php">Home</a>
             </li>
           
-            <li class="nav-item">
-              <a class="nav-link" href="keluar.php">Keluar</a>
-            </li>
+            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
+      <?php 
+        echo $_SESSION['username'];
+        ?>
+        </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="keluar.php">Keluar</a></li>
+    </ul>
+  </li>
           </ul>
         </div>
       </div>
     </nav>
     <h3 class="box">Selamat Datang, 
         <?php 
-        session_start();
-        echo $_SESSION['a_global']->username;
-        ?>
+    echo $_SESSION['username'];
+     ?>
         </h3>
 
  <!--Card-->

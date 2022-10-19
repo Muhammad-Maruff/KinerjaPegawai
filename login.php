@@ -21,37 +21,16 @@
         <img src="image/LOGO_PLN.png" alt="" class="logo">
     </h1>
         <div class="box-login">
-            <h2 class="jd-admin">ADMIN</h2>
-            <form action="" method="POST">
+            <h2 class="jd-admin">LOGIN</h2>
+            <form action="cek_login.php" method="POST">
                 <section id="label">
                 <label for="">USERNAME</label>
-                <input type="text" name="user" placeholder="Username..." class="input-control" id="input-user">
+                <input type="text" name="username" placeholder="Username..." class="input-control" id="input-user">
                 </section>
                 <label for="">PASSWORD</label>
-                <input type="password" name="pass" placeholder="Password..." class="input-control" id="input-pass">
+                <input type="password" name="password" placeholder="Password..." class="input-control" id="input-pass">
                 <input type="submit" name="submit" value="Login" class="btn-login">
             </form>
-            <?php
-            if(isset($_POST['submit'])){
-                session_start();
-                include 'db.php';
-    
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-    
-                $cek = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '".$user."' AND password = '".$pass."'");
-                if(mysqli_num_rows($cek) > 0){
-                    $d = mysqli_fetch_object($cek);
-                    $_SESSION['status_login'] = true;
-                    $_SESSION['a_global'] = $d;
-                    $_SESSION['id'] = $d->admin_id;
-                    echo '<script>window.location="admin.php"</script>';
-                }
-                else{
-                    echo '<script>alert("Username atau Password anda salah...!")</script>';
-                }
-            }
-            ?>
             </div>
 </div>
 </body>
