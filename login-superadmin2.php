@@ -67,41 +67,7 @@
       <h2>Sistem Informasi Petunjuk KPI</h2>
       <a href="#about" class="btn-get-started scrollto">Login</a>
       
-      </h1>
-        <div class="box-login">
-            <h2 class="jd-admin">SUPER ADMIN</h2>
-            <form action="" method="POST">
-                <section id="label">
-                <label for="">USERNAME</label>
-                <input type="text" name="user" placeholder="Username..." class="input-control" id="input-user">
-                </section>
-                <label for="">PASSWORD</label>
-                <input type="password" name="pass" placeholder="Password..." class="input-control" id="input-pass">
-                <input type="submit" name="submit" value="Login" class="btn-login">
-            </form>
-            <?php
-            if(isset($_POST['submit'])){
-                session_start();
-                include 'db.php';
-    
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-    
-                $cek = mysqli_query($conn, "SELECT * FROM tb_superadmin WHERE username = '".$user."' AND password = '".$pass."'");
-                if(mysqli_num_rows($cek) > 0){
-                    $d = mysqli_fetch_object($cek);
-                    $_SESSION['status_login'] = true;
-                    $_SESSION['a_global'] = $d;
-                    $_SESSION['id'] = $d->admin_id;
-                    echo '<script>window.location="superadmin.php"</script>';
-                }
-                else{
-                    echo '<script>alert("Username atau Password anda salah...!")</script>';
-                }
-            }
-            ?>
-
-    </div>
+ 
   </section><!-- End Hero -->
 
   <main id="main">
