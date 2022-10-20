@@ -192,20 +192,28 @@ foreach($result as $row)
       <input type="text" class="form-control" name="tdeskripsi" value="<?= $vdeskripsi ?>" disabled>
     </div>
   </div>
+
+
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
-    <div class="col-sm-10">
+    <div class="col auto">
       <input type="text" class="form-control" name="tdefinisi" value="<?= $vdefinisi ?>" disabled>
     </div>
   </div>
-          
+         
 
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttujuan" value="<?= $vtujuan ?>" disabled>
+    <div class="col auto">
+      <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="tujuan" value="<?= $vtujuan ?>" disabled>
+
+
+
+      <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttujuan" value="<?= $vtujuan ?>" disabled >  </textarea>
     </div>
   </div>
+
+  
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Satuan</label>

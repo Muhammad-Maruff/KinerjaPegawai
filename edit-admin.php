@@ -222,7 +222,13 @@ document.location='admin.php'
         <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tid" value="<?= $vid ?>" disabled>
+
+   <!-- <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+-->
+      <input type="text"class="form-control" name="tid" value="<?= $vid ?>" disabled>
     </div>
   </div>
   <div class="row mb-3">
@@ -234,7 +240,7 @@ document.location='admin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdefinisi" value="<?= $vdefinisi ?>">
+      <input type="text" row='5' class="form-control" name="tdefinisi" value="<?= $vdefinisi ?>">
     </div>
   </div>
           
