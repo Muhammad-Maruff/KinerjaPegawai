@@ -45,10 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="superadmin.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="juknis.php">Juknis</a>
+              <a class="nav-link" aria-current="page" href="admin.php">Juknis</a>
             </li>
             <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 

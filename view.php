@@ -157,10 +157,7 @@ foreach($result as $row)
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="superadmin.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="juknis.php">Juknis</a>
+              <a class="nav-link" aria-current="page" href="superadmin.php">Juknis</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="nav-user.php">User</a>
@@ -168,9 +165,17 @@ foreach($result as $row)
             <li class="nav-item">
               <a class="nav-link" href="role.php">Role Permission</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="keluar.php">Keluar</a>
-            </li>
+            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
+      <?php 
+      session_start();
+        echo $_SESSION['username'];
+        ?>
+        </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="keluar.php">Keluar</a></li>
+    </ul>
+  </li>
           </ul>
         </div>
       </div>

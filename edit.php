@@ -186,8 +186,8 @@ document.location='superadmin.php'
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
     <body>
-    <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
+     <!-- Nav -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
       <div class="container">
         <a href=""> <img src="https://www.patinews.com/wp-content/uploads/2015/03/logo-pln-pati.jpg" width="30" height="30" class="d-inline-block align-top logo" alt="" ></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -196,10 +196,7 @@ document.location='superadmin.php'
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="superadmin.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="juknis.php">Juknis</a>
+              <a class="nav-link" aria-current="page" href="superadmin.php">Juknis</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="nav-user.php">User</a>
@@ -207,9 +204,17 @@ document.location='superadmin.php'
             <li class="nav-item">
               <a class="nav-link" href="role.php">Role Permission</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="keluar.php">Keluar</a>
-            </li>
+            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
+      <?php 
+      session_start();
+        echo $_SESSION['username'];
+        ?>
+        </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="keluar.php">Keluar</a></li>
+    </ul>
+  </li>
           </ul>
         </div>
       </div>
