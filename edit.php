@@ -239,13 +239,13 @@ document.location='superadmin.php'
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdeskripsi" value="<?= $vdeskripsi ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vdeskripsi ?></textarea>
     </div>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdefinisi" value="<?= $vdefinisi ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdefinisi"><?= $vdefinisi ?></textarea>
     </div>
   </div>
           
@@ -253,7 +253,7 @@ document.location='superadmin.php'
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttujuan" value="<?= $vtujuan ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttujuan"><?= $vtujuan ?></textarea>
     </div>
   </div>
 
@@ -274,7 +274,7 @@ document.location='superadmin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Formula</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tformula" value="<?= $vformula ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tformula"><?= $vformula ?></textarea>
     </div>
   </div>
 
@@ -330,21 +330,21 @@ document.location='superadmin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Eviden</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="teviden" value="<?= $veviden ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="teviden"><?= $veviden ?></textarea>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsyarat" value="<?= $vsyarat_ketentuan ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tsyarat"><?= $vsyarat_ketentuan ?></textarea>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tparent" value="<?= $vkpi_parent ?>">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tparent"><?= $vkpi_parent ?></textarea>
     </div>
   </div>
   <div class="text-center">

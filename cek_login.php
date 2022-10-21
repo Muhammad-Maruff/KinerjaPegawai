@@ -46,12 +46,13 @@ if($cek > 0){
 		header("location:user.php");
  
 	}else{
- 
 		// alihkan ke halaman login kembali
-		header("location:login.php?pesan=gagal");
+		echo "<script>alert('Username atau password salah...!')</script>";
+		echo '<script>window.location="login.php"</script>';
 	}	
 }else{
-	header("location:login.php?pesan=gagal");
+	echo "<script>alert('Username atau password salah...!')</script>";
+	echo '<script>window.location="login.php"</script>';
 }
  
 ?>

@@ -122,16 +122,16 @@ foreach($result as $row)
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-  <div class="row mb-3">
+        <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdeskripsi">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"></textarea>
     </div>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tdefinisi">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdefinisi"></textarea>
     </div>
   </div>
           
@@ -139,7 +139,7 @@ foreach($result as $row)
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttujuan">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttujuan"></textarea>
     </div>
   </div>
 
@@ -160,7 +160,7 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Formula</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tformula">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tformula"></textarea>
     </div>
   </div>
 
@@ -201,10 +201,9 @@ foreach($result as $row)
 
   <div class="row mb-3">
       <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
-      <div class="col-md-10">
+      <div class="col-sm-10">
           <input type="text" name="tdivisi" id="divisi" class="form-control"/>
       </div>
-  <br>
   </div>
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
@@ -216,21 +215,21 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Eviden</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="teviden">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="teviden"></textarea>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsyarat">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tsyarat"></textarea>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tparent">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tparent"></textarea>
     </div>
   </div>
   <div class="text-center">
