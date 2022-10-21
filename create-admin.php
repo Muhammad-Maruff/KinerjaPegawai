@@ -232,7 +232,7 @@ foreach($result as $row)
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tparent"></textarea>
     </div>
   </div>
-  <div class="text-center">
+    <div class="text-center">
       <hr>
       <button class="btn btn-primary btn-simpan" name="btn-simpan" type="submit">Save</button>
       <button class="btn btn-primary btn-clear" name="btn-clear" type="reset">Clear</button>

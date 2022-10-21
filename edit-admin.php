@@ -111,6 +111,9 @@ document.location='admin.php'
     
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
+
+
+  
   }
 
   //deklarasi variabel untuk menampung data yang akan diedit
@@ -350,8 +353,6 @@ document.location='admin.php'
         </div>
      <!--Akhir input data-->
      
-    
-
         <script>
 var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     data:<?php echo json_encode($data); ?>,

@@ -1,3 +1,16 @@
+<?php
+  //Koneksi database
+  $server = "localhost";
+  $user = "root";
+  $password = "";
+  $database = "kinerjapegawai";
+
+  //buat koneksi
+  $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,6 +83,14 @@
     </div>
   </div>
 
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Level</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="level">
+    </div>
+  </div>
+  
+
   <div class="text-center">
   <input type="submit" class="btn btn-primary btn-register">
 </form>
@@ -78,6 +99,33 @@
 <!--Akhir input data-->
         
         </div>
+
+        <table class="table table-striped table:hover table-bordered">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Level</th>
+            </tr>
+            <?php
+              //persiapan menampilkan data
+            $user = mysqli_query($koneksi, "SELECT * FROM tb_login order by id asc");
+            while($account = mysqli_fetch_array($user)) :
+            ?>
+
+            <tr>
+              <td><?= $account['id'] ?></td>
+              <td><?= $account['nama'] ?></td>
+              <td><?= $account['username'] ?></td>
+              <td>Password Encryption...</td>
+              <td><?= $account['level'] ?></td>
+            </tr>
+            <?php endwhile; ?>
+
+
+      </table>
+      
         <div class="card-footer">
 
         </div>

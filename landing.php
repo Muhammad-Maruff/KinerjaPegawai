@@ -65,7 +65,7 @@
     </h1>
     <h1>Welcome to Sijuki</h1>
       <h2>Sistem Informasi Petunjuk KPI</h2>
-      <a href="login2.php" class="btn-get-started scrollto">Login</a>
+      <a href="login.php" class="btn-get-started scrollto">Login</a>
       
  
   </section><!-- End Hero -->
