@@ -10,7 +10,13 @@ SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
+$queri = "
+SELECT pemilik FROM tb_pemilik
+ORDER BY pemilik ASC
+";
+
 $result = $connect->query($query);
+$resultt = $connect->query($queri);
 
 $data = array();
 
@@ -19,6 +25,14 @@ foreach($result as $row)
     $data[] = array(
         'label'     =>  $row['divisi'],
         'value'     =>  $row['divisi']
+    );
+}
+
+foreach($resultt as $row)
+{
+    $data[] = array(
+        'label'     =>  $row['pemilik'],
+        'value'     =>  $row['pemilik']
     );
 }
 
@@ -214,7 +228,7 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpemilik">
+      <input type="text" class="form-control" name="tpemilik" id="pemilik">
     </div>
   </div>
 
@@ -251,6 +265,13 @@ foreach($result as $row)
 
         <script>
 var auto_complete = new Autocomplete(document.getElementById('divisi'), {
+    data:<?php echo json_encode($data); ?>,
+    maximumItems:10,
+    highlightTyped:true,
+    highlightClass : 'fw-bold text-primary'
+}); 
+
+var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
     data:<?php echo json_encode($data); ?>,
     maximumItems:10,
     highlightTyped:true,
