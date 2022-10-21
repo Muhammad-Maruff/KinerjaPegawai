@@ -66,6 +66,7 @@
         </div>
       </div>
     </nav>
+    
     <h3 class="box">Selamat Datang, 
     <?php 
     echo $_SESSION['username'];
