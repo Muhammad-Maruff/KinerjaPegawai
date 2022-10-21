@@ -62,12 +62,26 @@
     <div class="container text-center text-md-left" data-aos="fade-up">
 
 
+    <div class="box-login">
+            <h2 class="jd-admin">LOGIN</h2>
+            <form action="cek_login.php" method="POST">
+                <section id="label">
+                <label for="">USERNAME</label>
+                <input type="text" name="username" placeholder="Username..." class="input-control" id="input-user">
+                </section>
+                <label for="">PASSWORD</label>
+                <input type="password" name="password" placeholder="Password..." class="input-control" id="input-pass">
+                <input type="submit" name="submit" value="Login" class="btn-login">
+            </form>
+            </div>
+</div>
+<!--
     </h1>
     <h1>Welcome to Sijuki</h1>
       <h2>Sistem Informasi Petunjuk KPI</h2>
-      <a href="login2.php" class="btn-get-started scrollto">Login</a>
+      <a href="login.php" class="btn-get-started scrollto">Login</a>
       
- 
+-->
   </section><!-- End Hero -->
 
   <main id="main">
