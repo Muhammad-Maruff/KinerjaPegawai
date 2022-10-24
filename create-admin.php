@@ -89,7 +89,17 @@ foreach($result as $row)
 
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
+    <?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
     <body>
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
       <div class="container">
         <a href=""> <img src="https://www.patinews.com/wp-content/uploads/2015/03/logo-pln-pati.jpg" width="30" height="30" class="d-inline-block align-top logo" alt="" ></a>
@@ -99,14 +109,18 @@ foreach($result as $row)
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="admin.php">Home</a>
+              <a class="nav-link" aria-current="page" href="admin.php">Juknis</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="juknis.php">Juknis</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="keluar.php">Keluar</a>
-            </li>
+            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
+      <?php 
+        echo $_SESSION['username'];
+        ?>
+        </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="keluar.php">Keluar</a></li>
+    </ul>
+  </li>
           </ul>
         </div>
       </div>

@@ -21,6 +21,17 @@
     <title>Form | DATA</title>
     <link rel="stylesheet" href="style2.css">
 </head>
+
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
+
 <body>
       <!-- Nav -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
