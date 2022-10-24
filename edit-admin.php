@@ -215,7 +215,6 @@ document.location='admin.php'
             <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
       <?php 
-      session_start();
         echo $_SESSION['username'];
         ?>
         </a>
