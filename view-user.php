@@ -177,135 +177,100 @@ foreach($result as $row)
 
 
     <!--Card-->
-    <div class="row">
-      <div class="col-md-8 mx-auto newdata">
-      <div class="card">
-        <div class="card-header new-data">
-          Form Input Data
-        </div>
-        <div class="card-body">
-        <!--Input Data-->
-        <form method="POST">
-        <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tid" value="<?= $vid ?>" disabled>
-    </div>
-  </div>
-  <div class="row mb-3">
-  <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"  disabled><?= $vdeskripsi ?></textarea>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdefinisi"  disabled><?= $vdefinisi ?></textarea>
-    </div>
-  </div>
-          
+    <table class="table table-striped table:hover table-bordered">
+            <tr>
+              <th align="left">Deskripsi</th>
+              <td><?= $data['deskripsi'] ?></td>
+            </tr>
 
-        <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttujuan"  disabled><?= $vtujuan ?></textarea>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Definisi</th>
+              <td><?= $data['definisi'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Satuan</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsatuan" value="<?= $vsatuan ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Tujuan</th>
+              <td><?= $data['tujuan'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori" value="<?= $vkategori_satuan ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Satuan</th>
+              <td><?= $data['satuan'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Formula</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tformula"  disabled><?= $vformula?></textarea>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Kategori Satuan</th>
+              <td><?= $data['kategori_satuan'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Sumber Target</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tsumber" value="<?= $vsumber_target ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Formula</th>
+              <td><?= $data['formula'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe" value="<?= $vtipe_kpi ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Sumber Target</th>
+              <td><?= $data['sumber_target'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget" value="<?= $vtipe_target ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Tipe KPI</th>
+              <td><?= $data['tipe_kpi'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi" value="<?= $vfrekuensi ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Tipe Target</th>
+              <td><?= $data['tipe_target'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Polaritas</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas" value="<?= $vpolaritas ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Frekuensi</th>
+              <td><?= $data['frekuensi'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-      <label for="" class="col-sm-2 col-form-label">Jabatan Pemilik KPI</label>
-      <div class="col-md-10">
-          <input type="text" name="tdivisi" id="divisi" class="form-control" value="<?= $vdivisi ?>" disabled>
-      </div>
-  <br>
-  </div>
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpemilik" value="<?= $vpemilik ?>" disabled>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Polaritas</th>
+              <td><?= $data['polaritas'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Eviden</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="teviden"  disabled><?= $veviden ?></textarea>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Divisi</th>
+              <td><?= $data['divisi'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">Syarat & Ketentuan</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tsyarat"  disabled><?= $vsyarat_ketentuan ?></textarea>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Pemilik</th>
+              <td><?= $data['pemilik'] ?></td>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="" class="col-sm-2 col-form-label">KPI Parent</label>
-    <div class="col-sm-10">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tparent"  disabled><?= $vkpi_parent ?></textarea>
-    </div>
-  </div>
+            <tr>
+              <th align="left">Eviden</th>
+              <td><?= $data['eviden'] ?></td>
+            </tr>
 
-</form>   
-        </div>
+            <tr>
+              <th align="left">Syarat & Ketentuan</th>
+              <td><?= $data['syarat_ketentuan'] ?></td>
+            </tr>
+
+            <tr>
+              <th align="left">KPI Parent</th>
+              <td><?= $data['kpi_parent'] ?></td>
+            </tr>
+
+
+
+            <?php
+            
+              //persiapan menampilkan data
+              $no = 1;
+            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+            while($data = mysqli_fetch_array($tampil)) :
+            ?>
+            <?php endwhile; ?>
+
+            </table>
+       
      <!--Akhir input data-->
      
     
