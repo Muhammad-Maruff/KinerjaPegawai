@@ -198,7 +198,7 @@ document.location='superadmin.php'
               <a class="nav-link" href="nav-user.php">User</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="role.php">Role Permission</a>
+              <a class="nav-link" href="jabatan.php">Jabatan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="keluar.php">Keluar</a>

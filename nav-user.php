@@ -49,7 +49,7 @@
               <a class="nav-link" href="nav-user.php">User</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="role.php">Role Permission</a>
+              <a class="nav-link" href="jabatan.php">Jabatan</a>
             </li>
              <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 

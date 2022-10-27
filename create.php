@@ -131,7 +131,7 @@ foreach($resultt as $row)
               <a class="nav-link" href="nav-user.php">User</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="role.php">Role Permission</a>
+              <a class="nav-link" href="jabatan.php">Jabatan</a>
             </li>
             <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
@@ -296,6 +296,15 @@ var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
 
 </script>
 <script src="/library/autocomplete.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('tdefinisi');
+  CKEDITOR.replace('ttujuan');
+  CKEDITOR.replace('tformula');
+  CKEDITOR.replace('teviden');
+  CKEDITOR.replace('tsyarat');
+  CKEDITOR.replace('tparent');
+</script>
     </body>
 </html>
 
