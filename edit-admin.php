@@ -62,13 +62,13 @@ foreach($result as $row)
           if($edit){
             echo "<script>
               alert('Data berhasil edit!');
-              document.location='admin.php'
+              document.location='superadmin.php'
             </script>";
           }
           else{
             echo "<script>
               alert('Data gagal edit!');
-              document.location='admin.php'
+              document.location='superadmin.php'
             </script>";
           }
     }
@@ -99,21 +99,18 @@ foreach($result as $row)
 if($simpan){
 echo "<script>
 alert('data berhasil disimpan!');
-document.location='admin.php';
+document.location='superadmin.php';
 </script>";
 } else{
 echo "<script>
 alert('Simpan data gagal');
-document.location='admin.php'
+document.location='superadmin.php'
 </script>";
 }
     }
     
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
-
-
-  
   }
 
   //deklarasi variabel untuk menampung data yang akan diedit
@@ -188,7 +185,6 @@ document.location='admin.php'
 
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
-
     <?php 
 	session_start();
  
@@ -200,8 +196,8 @@ document.location='admin.php'
 	?>
 
     <body>
-    <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
+     <!-- Nav -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
       <div class="container">
         <a href=""> <img src="https://www.patinews.com/wp-content/uploads/2015/03/logo-pln-pati.jpg" width="30" height="30" class="d-inline-block align-top logo" alt="" ></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -210,7 +206,7 @@ document.location='admin.php'
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="admin.php">Juknis</a>
+              <a class="nav-link" aria-current="page" href="superadmin.php">Juknis</a>
             </li>
             <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
@@ -237,18 +233,13 @@ document.location='admin.php'
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-        <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tid" value="<?= $vid ?>" disabled>
-    </div>
-  </div>
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vdeskripsi ?></textarea>
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
@@ -274,8 +265,13 @@ document.location='admin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori" value="<?= $vkategori_satuan ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tkategori">
+  <option selected disabled><?= $vkategori_satuan ?></option>
+  <option value="Jumlah">Jumlah</option>
+  <option value="Persentase">Persentase</option>
+  <option value="Rupiah">Rupiah</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -295,29 +291,48 @@ document.location='admin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe" value="<?= $vtipe_kpi ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttipe">
+  <option selected disabled><?= $vtipe_kpi ?></option>
+  <option value="EXACT">EXACT</option>
+  <option value="PROXY">PROXY</option>
+  <option value="ACTIVITY">ACTIVITY</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget" value="<?= $vtipe_target ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttarget">
+  <option selected disabled><?= $vtipe_target ?></option>
+  <option value="Akumulatif">Akumulatif</option>
+  <option value="Non Akumulatif">Non Akumulatif</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi" value="<?= $vfrekuensi ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tfrekuensi">
+  <option selected disabled><?= $vfrekuensi ?></option>
+  <option value="Bulanan">Bulanan</option>
+  <option value="Triwulan">Triwulan</option>
+  <option value="Semesteran">Semesteran</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas" value="<?= $vpolaritas ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tpolaritas">
+  <option selected disabled><?= $vpolaritas ?></option>
+  <option value="POSITIF">POSITIF</option>
+  <option value="NEGATIF">NEGATIF</option>
+  <option value="RANGE">RANGE</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -363,6 +378,8 @@ document.location='admin.php'
         </div>
      <!--Akhir input data-->
      
+    
+
         <script>
 var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     data:<?php echo json_encode($data); ?>,
@@ -370,7 +387,15 @@ var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     highlightTyped:true,
     highlightClass : 'fw-bold text-primary'
 }); 
-
+</script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('tdefinisi');
+  CKEDITOR.replace('ttujuan');
+  CKEDITOR.replace('tformula');
+  CKEDITOR.replace('teviden');
+  CKEDITOR.replace('tsyarat');
+  CKEDITOR.replace('tparent');
 </script>
 <script src="/library/autocomplete.js"></script>
     </body>

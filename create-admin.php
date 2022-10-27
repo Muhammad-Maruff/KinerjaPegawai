@@ -10,7 +10,13 @@ SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
+$queri = "
+SELECT pemilik FROM tb_pemilik
+ORDER BY pemilik ASC
+";
+
 $result = $connect->query($query);
+$resultt = $connect->query($queri);
 
 $data = array();
 
@@ -19,6 +25,14 @@ foreach($result as $row)
     $data[] = array(
         'label'     =>  $row['divisi'],
         'value'     =>  $row['divisi']
+    );
+}
+
+foreach($resultt as $row)
+{
+    $data[] = array(
+        'label'     =>  $row['pemilik'],
+        'value'     =>  $row['pemilik']
     );
 }
 
@@ -61,12 +75,12 @@ foreach($result as $row)
     if($simpan){
       echo "<script>
       alert('data berhasil disimpan!');
-      document.location='admin.php';
+      document.location='superadmin.php';
       </script>";
     } else{
       echo "<script>
         alert('Simpan data gagal');
-        document.location='admin.php'
+        document.location='superadmin.php'
       </script>";
     }
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
@@ -89,6 +103,7 @@ foreach($result as $row)
 
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
+
     <?php 
 	session_start();
  
@@ -98,6 +113,7 @@ foreach($result as $row)
 	}
  
 	?>
+
     <body>
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
@@ -136,12 +152,13 @@ foreach($result as $row)
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-        <div class="row mb-3">
+  <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"></textarea>
     </div>
   </div>
+  
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
@@ -167,8 +184,13 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tkategori">
+  <option selected disabled>Kategori Satuan</option>
+  <option value="Jumlah">Jumlah</option>
+  <option value="Persentase">Persentase</option>
+  <option value="Rupiah">Rupiah</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -188,29 +210,49 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttipe">
+  <option selected disabled>Tipe KPI</option>
+  <option value="EXACT">EXACT</option>
+  <option value="PROXY">PROXY</option>
+  <option value="ACTIVITY">ACTIVITY</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttarget">
+  <option selected disabled>Tipe Target</option>
+  <option value="Akumulatif">Akumulatif</option>
+  <option value="Non Akumulatif">Non Akumulatif</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tfrekuensi">
+  <option selected disabled>Frekuensi</option>
+  <option value="Bulanan">Bulanan</option>
+  <option value="Triwulan">Triwulan</option>
+  <option value="Semesteran">Semesteran</option>
+</select>
+</div>
   </div>
+  
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tpolaritas">
+  <option selected disabled>Polaritas</option>
+  <option value="POSITIF">POSITIF</option>
+  <option value="NEGATIF">NEGATIF</option>
+  <option value="RANGE">RANGE</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -222,7 +264,7 @@ foreach($result as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Pemilik KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpemilik">
+      <input type="text" class="form-control" name="tpemilik" id="pemilik">
     </div>
   </div>
 
@@ -246,7 +288,7 @@ foreach($result as $row)
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tparent"></textarea>
     </div>
   </div>
-    <div class="text-center">
+  <div class="text-center">
       <hr>
       <button class="btn btn-primary btn-simpan" name="btn-simpan" type="submit">Save</button>
       <button class="btn btn-primary btn-clear" name="btn-clear" type="reset">Clear</button>
@@ -265,8 +307,24 @@ var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     highlightClass : 'fw-bold text-primary'
 }); 
 
+var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
+    data:<?php echo json_encode($data); ?>,
+    maximumItems:10,
+    highlightTyped:true,
+    highlightClass : 'fw-bold text-primary'
+}); 
+
 </script>
 <script src="/library/autocomplete.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('tdefinisi');
+  CKEDITOR.replace('ttujuan');
+  CKEDITOR.replace('tformula');
+  CKEDITOR.replace('teviden');
+  CKEDITOR.replace('tsyarat');
+  CKEDITOR.replace('tparent');
+</script>
     </body>
 </html>
 

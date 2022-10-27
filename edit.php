@@ -239,18 +239,13 @@ document.location='superadmin.php'
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-        <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="tid" value="<?= $vid ?>" disabled>
-    </div>
-  </div>
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vdeskripsi ?></textarea>
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">
@@ -276,8 +271,13 @@ document.location='superadmin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori" value="<?= $vkategori_satuan ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tkategori">
+  <option selected disabled><?= $vkategori_satuan ?></option>
+  <option value="Jumlah">Jumlah</option>
+  <option value="Persentase">Persentase</option>
+  <option value="Rupiah">Rupiah</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -297,29 +297,48 @@ document.location='superadmin.php'
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe" value="<?= $vtipe_kpi ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttipe">
+  <option selected disabled><?= $vtipe_kpi ?></option>
+  <option value="EXACT">EXACT</option>
+  <option value="PROXY">PROXY</option>
+  <option value="ACTIVITY">ACTIVITY</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget" value="<?= $vtipe_target ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttarget">
+  <option selected disabled><?= $vtipe_target ?></option>
+  <option value="Akumulatif">Akumulatif</option>
+  <option value="Non Akumulatif">Non Akumulatif</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi" value="<?= $vfrekuensi ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tfrekuensi">
+  <option selected disabled><?= $vfrekuensi ?></option>
+  <option value="Bulanan">Bulanan</option>
+  <option value="Triwulan">Triwulan</option>
+  <option value="Semesteran">Semesteran</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas" value="<?= $vpolaritas ?>">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tpolaritas">
+  <option selected disabled><?= $vpolaritas ?></option>
+  <option value="POSITIF">POSITIF</option>
+  <option value="NEGATIF">NEGATIF</option>
+  <option value="RANGE">RANGE</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -374,7 +393,15 @@ var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     highlightTyped:true,
     highlightClass : 'fw-bold text-primary'
 }); 
-
+</script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('tdefinisi');
+  CKEDITOR.replace('ttujuan');
+  CKEDITOR.replace('tformula');
+  CKEDITOR.replace('teviden');
+  CKEDITOR.replace('tsyarat');
+  CKEDITOR.replace('tparent');
 </script>
 <script src="/library/autocomplete.js"></script>
     </body>
