@@ -189,8 +189,13 @@ foreach($resultt as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tkategori">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tkategori">
+  <option selected disabled>Kategori Satuan</option>
+  <option value="Jumlah">Jumlah</option>
+  <option value="Persentase">Persentase</option>
+  <option value="Rupiah">Rupiah</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
@@ -210,29 +215,49 @@ foreach($resultt as $row)
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttipe">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttipe">
+  <option selected disabled>Tipe KPI</option>
+  <option value="EXACT">EXACT</option>
+  <option value="PROXY">PROXY</option>
+  <option value="ACTIVITY">ACTIVITY</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="ttarget">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="ttarget">
+  <option selected disabled>Tipe Target</option>
+  <option value="Akumulatif">Akumulatif</option>
+  <option value="Non Akumulatif">Non Akumulatif</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tfrekuensi">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tfrekuensi">
+  <option selected disabled>Frekuensi</option>
+  <option value="Bulanan">Bulanan</option>
+  <option value="Triwulan">Triwulan</option>
+  <option value="Semesteran">Semesteran</option>
+</select>
+</div>
   </div>
+  
 
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="tpolaritas">
-    </div>
+    <select class="form-select" aria-label="Default select example" name="tpolaritas">
+  <option selected disabled>Polaritas</option>
+  <option value="POSITIF">POSITIF</option>
+  <option value="NEGATIF">NEGATIF</option>
+  <option value="RANGE">RANGE</option>
+</select>
+</div>
   </div>
 
   <div class="row mb-3">
