@@ -131,7 +131,7 @@
                 <a href="view-admin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
                 <a href="edit-admin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
 
-                <a href="delete-admin.php?hal=delete&id=<?=$data['id_data']?>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
+                <a href="delete-admin.php?hal=delete&id=<?=$data['id_data']?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">Delete</a>
 
               </td>
             </tr>
