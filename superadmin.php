@@ -104,6 +104,7 @@
               <th>Tipe Target</th>
               <th>Polaritas</th>
               <th>Jabatan Pemilik KPI</th>
+              <th>Status</th>
               <th>Aksi</th>
             </tr>
 
@@ -128,20 +129,28 @@
     
             <tr>
               <td><?= $data['id_data'] ?></td>
-              <?php 
-
+            <?php 
             if ($data['usulan_deskripsi'] == '') {
-                echo '<td>'. $data['deskripsi']. '<td>';
+                echo '<td>'. $data['deskripsi']. '</td>';
             }else{
-                echo '<td>'. $data['usulan_deskripsi']. '<td>';
+                echo '<td>'. $data['usulan_deskripsi']. '</td>';
             }
             ?>
+            </td>
               <td><?= $data['satuan'] ?></td>
               <td><?= $data['kategori_satuan'] ?></td>
               <td><?= $data['tipe_kpi'] ?></td>
               <td><?= $data['tipe_target'] ?></td>
               <td><?= $data['polaritas'] ?></td>
               <td><?= $data['divisi'] ?></td>
+              <?php 
+
+            if ($data['usulan_deskripsi'] == '') {
+                echo '<td>'.'<button class="btn btn-warning">'. 'Data belum diubah' . '</button>'.'</td>';
+            }else{
+              echo '<td>'.'<button class="btn btn-view">'. 'Data sudah diubah' . '</button>'.'</td>';
+            }
+            ?>
               <td>
                 <a href="view.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-view">View</a>
                 <a href="edit.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>

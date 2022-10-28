@@ -255,7 +255,7 @@ document.location='superadmin.php'
   <label for="inputEmail3" class="col-sm-2 col-form-label">Usulan Deskripsi KPI</label>
     <div class="col-sm-10">
       
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vusulan_deskripsi ?></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tusulan_deskripsi"><?= $vusulan_deskripsi ?></textarea>
     </div>
   </div>
 
