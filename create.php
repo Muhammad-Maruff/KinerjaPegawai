@@ -53,7 +53,7 @@ foreach($resultt as $row)
   if(isset($_POST['btn-simpan'])){
     //Data akan disimpan
     $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
-                                      VALUE ( '$_POST[tdeskripsi]', 
+                                      VALUE ( '$_POST[tdeskripsi]',
                                               '$_POST[tdefinisi]',
                                               '$_POST[ttujuan]', 
                                               '$_POST[tsatuan]', 
@@ -164,7 +164,8 @@ foreach($resultt as $row)
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"></textarea>
     </div>
   </div>
-  
+
+
   <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Definisi KPI</label>
     <div class="col-sm-10">

@@ -39,8 +39,9 @@ foreach($result as $row)
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
     //Data akan disimpan
-    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
-                                      VALUE ( '$_POST[tdeskripsi]', 
+    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
+                                      VALUE ( '$_POST[tdeskripsi]',
+                                              '$_POST[tusulan_deskripsi]', 
                                               '$_POST[tdefinisi]',
                                               '$_POST[ttujuan]', 
                                               '$_POST[tsatuan]', 
@@ -77,7 +78,8 @@ foreach($result as $row)
   //deklarasi variabel untuk menampung data yang akan diedit
   $vid = "";
   $vdeskripsi = "";
-  $vdefinisi = "";
+  $vusulan_deskripsi = ""
+;  $vdefinisi = "";
   $vtujuan = "";
   $vsatuan = "";
   $vkategori_satuan = "";
@@ -109,6 +111,7 @@ foreach($result as $row)
         //jika data ditemukan, maka data ditampung kedalam variabel
         $vid = $data['id_data'];
         $vdeskripsi = $data['deskripsi'];
+        $vusulan_deskripsi = $data['usulan_deskripsi'];
         $vdefinisi = $data['definisi'];
         $vtujuan = $data['tujuan'];
         $vsatuan = $data['satuan'];
@@ -197,6 +200,11 @@ foreach($result as $row)
             <tr>
               <th align="left">Deskripsi</th>
               <td><?= $data['deskripsi'] ?></td>
+            </tr>
+
+            <tr>
+              <th align="left">Usulan Deskripsi</th>
+              <td><?= $data['usulan_deskripsi'] ?></td>
             </tr>
 
             <tr>

@@ -41,6 +41,7 @@ foreach($result as $row)
     if(isset($_GET['hal']) == "edit"){
       $edit = mysqli_query($koneksi, "UPDATE tb_data SET
                                               deskripsi = '$_POST[tdeskripsi]',
+                                              deskripsi = '$_POST[tusulan_deskripsi]',
                                               definisi = '$_POST[tdefinisi]',
                                               tujuan = '$_POST[ttujuan]',
                                               satuan = '$_POST[tsatuan]',
@@ -75,9 +76,10 @@ foreach($result as $row)
     //Data akan disimpan
 
     else{
-      $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
+      $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
       VALUE ( '$_POST[tid]',
               '$_POST[tdeskripsi]', 
+              '$_POST[tusulan_deskripsi]', 
               '$_POST[tdefinisi]',
               '$_POST[ttujuan]', 
               '$_POST[tsatuan]', 
@@ -116,6 +118,7 @@ document.location='superadmin.php'
   //deklarasi variabel untuk menampung data yang akan diedit
   $vid = "";
   $vdeskripsi = "";
+  $vusulan_deskripsi = "";
   $vdefinisi = "";
   $vtujuan = "";
   $vsatuan = "";
@@ -148,6 +151,7 @@ document.location='superadmin.php'
         //jika data ditemukan, maka data ditampung kedalam variabel
         $vid = $data['id_data'];
         $vdeskripsi = $data['deskripsi'];
+        $vusulan_deskripsi = $data['usulan_deskripsi'];
         $vdefinisi = $data['definisi'];
         $vtujuan = $data['tujuan'];
         $vsatuan = $data['satuan'];
@@ -239,10 +243,20 @@ document.location='superadmin.php'
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
+
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vdeskripsi ?></textarea>
+    </div>
+  </div>
+
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Usulan Deskripsi KPI</label>
+    <div class="col-sm-10">
+      
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdeskripsi"><?= $vusulan_deskripsi ?></textarea>
     </div>
   </div>
 
