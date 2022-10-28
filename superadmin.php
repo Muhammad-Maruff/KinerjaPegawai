@@ -116,19 +116,26 @@
             if(isset($_POST['btn-cari'])){
               //tampilkan data yang dicari
               $keyword = $_POST['tcari'];
-              $q = "SELECT * FROM tb_data WHERE id_data like '%$keyword%' or deskripsi like '%$keyword%' or divisi like '%$keyword%' or kategori_satuan like '%$keyword%' or tipe_kpi like '%$keyword%' or tipe_target like '%$keyword%' or polaritas like '%$keyword%' order by id_data desc ";
+              $q = "SELECT * FROM tb_data WHERE id_data like '%$keyword%' or deskripsi like '%$keyword%' or usulan_deskripsi like '%$keyword% or divisi like '%$keyword%' or kategori_satuan like '%$keyword%' or tipe_kpi like '%$keyword%' or tipe_target like '%$keyword%' or polaritas like '%$keyword%' order by id_data desc ";
             }else{
               $q =  "SELECT * FROM tb_data order by id_data asc";
             }
 
 
             $tampil = mysqli_query($koneksi, $q);
-            while($data = mysqli_fetch_array($tampil)) :
+            while($data = mysqli_fetch_array($tampil)):
             ?>
-
+    
             <tr>
               <td><?= $data['id_data'] ?></td>
-              <td><?= $data['deskripsi'] ?></td>
+              <?php 
+
+            if ($data['usulan_deskripsi'] == '') {
+                echo '<td>'. $data['deskripsi']. '<td>';
+            }else{
+                echo '<td>'. $data['usulan_deskripsi']. '<td>';
+            }
+            ?>
               <td><?= $data['satuan'] ?></td>
               <td><?= $data['kategori_satuan'] ?></td>
               <td><?= $data['tipe_kpi'] ?></td>

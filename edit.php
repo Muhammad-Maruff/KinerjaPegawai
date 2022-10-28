@@ -41,7 +41,7 @@ foreach($result as $row)
     if(isset($_GET['hal']) == "edit"){
       $edit = mysqli_query($koneksi, "UPDATE tb_data SET
                                               deskripsi = '$_POST[tdeskripsi]',
-                                              deskripsi = '$_POST[tusulan_deskripsi]',
+                                              usulan_deskripsi = '$_POST[tusulan_deskripsi]',
                                               definisi = '$_POST[tdefinisi]',
                                               tujuan = '$_POST[ttujuan]',
                                               satuan = '$_POST[tsatuan]',
@@ -243,7 +243,6 @@ document.location='superadmin.php'
         <div class="card-body">
         <!--Input Data-->
         <form method="POST">
-
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi KPI</label>
     <div class="col-sm-10">
